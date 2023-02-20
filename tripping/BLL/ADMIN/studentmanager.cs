@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.ADMIN
 {
-    class studentmanager
+ public   class studentmanager
     {
     }
 }
