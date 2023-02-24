@@ -15,7 +15,7 @@ namespace DAL
         public SqlConnection con;
         public SqlConnection GetConnection()
         {
-            SqlConnection con = new SqlConnection("Data Source=AITRICH-WIN8\\sqlexpress;Initial Catalog=StudentManagementSystem;User ID=students;Password=password");
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-0VD3EV7;Initial Catalog=dummyproject;Integrated Security=True");
             if (con.State == ConnectionState.Open)
             {
 
@@ -56,7 +56,7 @@ namespace DAL
                 }
             }
 
-            SqlDataAdapter ad = new SqlDataAdapter();
+            SqlDataAdapter ad = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             ad.Fill(dt);
             return dt;
