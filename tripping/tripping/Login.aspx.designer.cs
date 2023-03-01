@@ -24,15 +24,6 @@ namespace tripping
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Labelloginhead control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labelloginhead;
-
-        /// <summary>
         /// Labelusername control.
         /// </summary>
         /// <remarks>
@@ -96,13 +87,13 @@ namespace tripping
         protected global::System.Web.UI.WebControls.Button Buttonlogin;
 
         /// <summary>
-        /// Label control.
+        /// lblparagraph control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label;
+        protected global::System.Web.UI.WebControls.Label lblparagraph;
 
         /// <summary>
         /// Buttonsignup control.
@@ -112,5 +103,14 @@ namespace tripping
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Buttonsignup;
+
+        /// <summary>
+        /// Label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label;
     }
 }
