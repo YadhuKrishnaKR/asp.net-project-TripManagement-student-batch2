@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
+//using System.Web.UI.WebControls;
 
 namespace BLL.ADMIN
 {
@@ -40,35 +40,10 @@ namespace BLL.ADMIN
                     //CREATEDDATE = dr["CREATEDDATE"].ToString(),
                     //MODIFIEDDATE =dr["MODIFIEDDATE"].ToString(),
                     STATUS = dr["STATUS"].ToString(),
-                    ROLE = dr["ROLE"].ToString(),
-
 
                 });
             }
             return _list;
-
-        }
-
-       
-        public void SelectpmById()
-        {
-            S1.Clear();
-            S1.Add("APPUSER_ID", reg.APPUSER_ID);
-            DataTable dt = new DataTable();
-            dt = Db_obj.getdatatable(S1, "SellectpmById");
-            if (dt.Rows.Count > 0)
-            {
-                reg.APPUSER_NAME = dt.Rows[0].ItemArray[1].ToString();
-
-                reg.CONTACT = dt.Rows[0].ItemArray[3].ToString();
-
-                reg.EMAIL = dt.Rows[0].ItemArray[2].ToString();
-                reg.PASSWORD = dt.Rows[0].ItemArray[4].ToString();
-                //reg.CREATEDDATE= dt.Rows[0].ItemArray[5].ToString();
-                //reg.MODIFIEDDATE= dt.Rows[0].ItemArray[6].ToString();
-
-            }
-
 
         }
         public string pmInsert()
@@ -82,8 +57,6 @@ namespace BLL.ADMIN
             S1.Add("STATUS", reg.STATUS);
             //S1.Add("CREATEDDATE", reg.CREATEDDATE);
             //S1.Add("MODIFIEDDATE", reg.MODIFIEDDATE);
-            S1.Add("ROLE", reg.ROLE);
-
             return Db_obj.executeprocedure(S1, "pm_insert");
 
         }
