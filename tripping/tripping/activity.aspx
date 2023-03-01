@@ -46,7 +46,7 @@
                     <br />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("HOTEL_ID") %>'></asp:Label>
+                    <asp:Label ID="Labelhotelid" runat="server" Text='<%# Eval("HOTEL_ID") %>'></asp:Label>
                     <br />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -60,8 +60,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="Label6" runat="server" Text='<%# Eval("PRICE") %>'></asp:Label>
                     <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:CheckBox ID="CheckBoxhotel" runat="server" OnCheckedChanged="CheckBoxhotel_CheckedChanged" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:CheckBox ID="CheckBoxhotel" runat="server" OnCheckedChanged="CheckBoxhotel_CheckedChanged" />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:HiddenField ID="HiddenFieldhtl" runat="server" Value='<%# Eval("PRICE") %>' />
@@ -81,6 +80,7 @@
         <br />
         <asp:HiddenField ID="HiddenFieldactivityfare" runat="server" />
         <asp:HiddenField ID="HiddenFieldhotelfare" runat="server" />
+        <asp:HiddenField ID="HiddenField2" runat="server" />
         <asp:HiddenField ID="HiddenFieldpackagefare" runat="server" />
         <br />
         <asp:HiddenField ID="HiddenField1" runat="server" />

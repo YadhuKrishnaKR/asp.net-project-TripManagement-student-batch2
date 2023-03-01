@@ -18,16 +18,21 @@ namespace BLL.USER.Manager
         public packagelist pl_obj = new packagelist();
         private SortedList s1 = new SortedList();
         Activitylist al_obj = new Activitylist();
+        Booking booking_obj=new Booking();
         Hotel hotel_obj = new Hotel();
 
-        public  DataTable getpackageamount(int akid)
+        public  string getpackageamount(int akid)
         {
             DataTable dt = new DataTable();
             s1.Clear();
             s1.Add("PACKAGE_ID", akid);
-            dt = db_obj.getdatatable(s1,"SP_getpackagefare");
-            return dt;
-           
+          dt=  db_obj.getdatatable(s1,"SP_getpackagefare");
+           if(dt.Rows.Count>0)
+            {
+                pl_obj.BASICFARE = Convert.ToInt32 (dt.Rows[0].ItemArray[0].ToString());
+            }
+
+            return Convert.ToInt32(pl_obj.BASICFARE).ToString();
         }
 
         public  List<locationProperty> locationdropdownlist()
@@ -44,6 +49,16 @@ namespace BLL.USER.Manager
                 });
             }
             return li;
+        }
+
+        public string bookinginsert(int Total,int Pid,int Hid,int Uid)
+        {
+            s1.Clear();
+            s1.Add("PACKAGEID", Pid);
+            s1.Add("HOTELID", Hid);
+            s1.Add("TOTAL_AMOUNT", Total);
+            s1.Add("USER_ID", Uid);
+            return db_obj.executeprocedure(s1, "SP_bookinginsert");
         }
 
         public object packagelisting()

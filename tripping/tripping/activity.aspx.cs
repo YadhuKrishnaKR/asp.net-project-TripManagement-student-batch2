@@ -14,6 +14,8 @@ namespace tripping
         Usermanager um_obj = new Usermanager();
         Activitylist al_obj = new Activitylist();
         Hotel hotel_obj = new Hotel();
+        int activitytotal=0;
+        int hid ;
         protected void Page_Load(object sender, EventArgs e)
         {
          
@@ -36,39 +38,66 @@ namespace tripping
 
         protected void CheckBoxactivityselect_CheckedChanged(object sender, EventArgs e)
         {
-         
+
+
+            //    foreach (DataListItem item in DataListactivity.Items)
+            //    {
+
+            //        CheckBox l1 = item.FindControl("CheckBoxactivityselect") as CheckBox;
+
+            //        if (l1.Checked == true)
+            //        {
+
+            //            //CheckBox imgbtn = sender as CheckBox;
+            //            //DataListItem gvr = imgbtn.NamingContainer as DataListItem;
+
+            //            HiddenField h1 = item.FindControl("HiddenFieldactivityid") as HiddenField;
+
+
+
+            //            int v = Convert.ToInt32(h1.Value);
+
+
+
+            //            activitytotal += v;
+            //        }
+            //    }
+        }
+
+        protected void Buttonpayment_Click(object sender, EventArgs e)
+        {
 
             foreach (DataListItem item in DataListactivity.Items)
             {
-              
+
                 CheckBox l1 = item.FindControl("CheckBoxactivityselect") as CheckBox;
 
                 if (l1.Checked == true)
                 {
 
-                    CheckBox imgbtn = sender as CheckBox;
-                    DataListItem gvr = imgbtn.NamingContainer as DataListItem;
+                    //CheckBox imgbtn = sender as CheckBox;
+                    //DataListItem gvr = imgbtn.NamingContainer as DataListItem;
 
                     HiddenField h1 = item.FindControl("HiddenFieldactivityid") as HiddenField;
-               
-               
+
+
 
                     int v = Convert.ToInt32(h1.Value);
-                  
 
-                    HiddenFieldactivityfare.Value = Convert.ToInt32(v).ToString();
+
+
+                    activitytotal += v;
                 }
-        }  
-    }
+            }
 
-        protected void Buttonpayment_Click(object sender, EventArgs e)
-        {
+
             int id =  Convert.ToInt32(HiddenField1.Value.ToString());
           
-            int var = Convert.ToInt32(HiddenFieldactivityfare.Value);
+            
             int hotelfare = Convert.ToInt32(HiddenFieldhotelfare.Value);
-            string pf = um_obj.getpackageamount(id).ToString();
-            Response.Redirect("Payment.aspx?var=" + var + "&hotelfare=" + hotelfare +"&basicfare=" + pf);
+           string pf = um_obj.getpackageamount(id).ToString();
+            int hid =  Convert.ToInt32(HiddenField2.Value);
+            Response.Redirect("Payment.aspx?var=" + activitytotal + "&hotelfare=" + hotelfare +"&basicfare=" + pf + "&packageid=" +id +"&hotelid=" +hid);
           
           
         }
@@ -85,7 +114,10 @@ namespace tripping
                     HiddenField h2 = item.FindControl("HiddenFieldhtl") as HiddenField;
                     int v = Convert.ToInt32(h2.Value);
                     HiddenFieldhotelfare.Value = Convert.ToInt32(v).ToString();
+                    Label l1 = item.FindControl("Labelhotelid") as Label;
+                    HiddenField2.Value = l1.Text;
                 }
+                
             }
         }
     }

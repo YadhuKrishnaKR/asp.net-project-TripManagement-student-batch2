@@ -52,7 +52,7 @@
                    <br />
                    <br />
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <asp:Label ID="Label8" runat="server" Font-Bold="True" ForeColor="Yellow" Text='<%# Eval("CORDINATORID") %>'></asp:Label>
+                   <asp:Label ID="Label8" runat="server" Font-Bold="True" ForeColor="Yellow" Text='<%# Eval("BASICFARE") %>'></asp:Label>
                    <br />
                    <br />
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
