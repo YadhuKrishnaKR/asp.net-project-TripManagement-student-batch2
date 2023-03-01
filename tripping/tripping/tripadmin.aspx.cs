@@ -8,8 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-//using System.Net;
-//using System.Net.Mail;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -38,30 +37,6 @@ namespace tripping
         protected void dlt_Click(object sender, EventArgs e)
         {
             GridView1.Visible = true;
-        }
-
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            ImageButton imgbtn = sender as ImageButton;
-            GridViewRow gvr = imgbtn.NamingContainer as GridViewRow;
-            HiddenField1.Value = GridView1.DataKeys[gvr.RowIndex].Value.ToString();
-            selectbyId();
-        }
-
-        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
-        {
-            ImageButton imgbtn = sender as ImageButton;
-            GridViewRow gvr = imgbtn.NamingContainer as GridViewRow;
-            HiddenField1.Value = GridView1.DataKeys[gvr.RowIndex].Value.ToString();
-            pmDelete();
-        }
-        public void selectbyId()
-        {
-
-            trpmngr_Obj.reg.APPUSER_ID = int.Parse(HiddenField1.Value);
-            trpmngr_Obj.SelectpmById();
-
-
         }
         public void pmDelete()
         {
@@ -101,33 +76,6 @@ namespace tripping
             }
             pmBind();
         }
-
-
-
-        protected void add_Click(object sender, EventArgs e)
-        {
-
-            Label3.Visible = true;
-            Label4.Visible = true;
-            Label5.Visible = true;
-            Label7.Visible = true;
-            Label12.Visible = true;
-            
-            Label11.Visible = true;
-            save.Visible = true;
-            clear.Visible = true;
-          
-            TextBox2.Visible = true;
-            TextBox3.Visible = true;
-            TextBox4.Visible = true;
-            TextBox5.Visible = true;
-           
-            TextBox9.Visible = true;
-            TextBox10.Visible = true;
-
-        }
-
-
         public void pminsert()
         {
 
@@ -135,7 +83,6 @@ namespace tripping
             trpmngr_Obj.reg.EMAIL = TextBox3.Text.Trim().ToString();
             trpmngr_Obj.reg.CONTACT = TextBox4.Text.Trim().ToString();
             trpmngr_Obj.reg.STATUS = TextBox10.Text.Trim().ToString();
-            trpmngr_Obj.reg.ROLE = TextBox9.Text.Trim().ToString();
             trpmngr_Obj.reg.PASSWORD = TextBox5.Text.Trim().ToString();
           
             string result = trpmngr_Obj.pmInsert();
@@ -143,8 +90,6 @@ namespace tripping
             HiddenField1.Value = "-1";
             if (result == "Success")
             {
-
-                GridView1.Visible = true;
                 Label6.Visible = true;
                 Label6.Text = "Inserted Successfully";
                 Clear();
@@ -219,25 +164,27 @@ namespace tripping
 
         protected void clear_Click(object sender, EventArgs e)
         {
-
-
             TextBox2.Text = "";
             TextBox3.Text = "";
             TextBox4.Text = "";
             TextBox5.Text = "";
             TextBox10.Text = "";
-            TextBox9.Text = "";
-
         }
         public void Clear()
         {
-
             TextBox2.Text = "";
             TextBox3.Text = "";
             TextBox4.Text = "";
             TextBox5.Text = "";
             TextBox10.Text = "";
-            TextBox9.Text = "";
         }
-        
-    } }
+
+        protected void btndlt_Click(object sender, EventArgs e)
+        {
+            Button imgbtn = sender as Button;
+            GridViewRow gvr = imgbtn.NamingContainer as GridViewRow;
+            HiddenField1.Value = GridView1.DataKeys[gvr.RowIndex].Value.ToString();
+            pmDelete();
+        }
+    }
+}   
