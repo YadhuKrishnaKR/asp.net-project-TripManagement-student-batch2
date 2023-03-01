@@ -65,22 +65,10 @@ namespace tripping
             //if (Buttonsignup.ValidationGroup == "a" && Page.IsValid == true)
             //{
                 Response.Redirect("signup.aspx");
-
-            
             //}
-        }
-
-        
-        //protected void Buttonout_Click(object sender, EventArgs e)
-        //{
-        //    Session.Abandon();
-        //    Session.Remove("UserId");
-        //    Session.Remove("Role");
-        //    Response.Redirect("signup.aspx");
-            
         }
     }
 
-
+}
 
 
