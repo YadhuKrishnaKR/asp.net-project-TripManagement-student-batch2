@@ -32,11 +32,11 @@
                 <asp:Label ID="Label7" runat="server" Text="PASSWORD" Visible="true"></asp:Label>
                 <asp:TextBox ID="TextBox5" runat="server" Visible="true" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="mt-1">
+           <%-- <div class="mt-1">
                 <asp:Label ID="Label12" runat="server" Text="STATUS" Visible="true"></asp:Label>
                 <asp:TextBox ID="TextBox10" runat="server" Visible="true" CssClass="form-control"></asp:TextBox>
             </div>
-           
+           --%>
             <br />
            <div class="d-flex justify-content-center">
                 <asp:Button ID="save" runat="server" OnClick="save_Click" Text="save" Visible="true" CssClass="btn btn-success"/>
@@ -57,9 +57,9 @@
                         <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" />
                         <asp:BoundField DataField="CONTACT" HeaderText="CONTACT" />
                         <asp:BoundField DataField="PASSWORD" HeaderText="PASSWORD" />
-                        <asp:BoundField DataField="STATUS" HeaderText="STATUS" />
+                       <%-- <asp:BoundField DataField="STATUS" HeaderText="STATUS" />
                         <asp:BoundField DataField="CREATEDDATE" HeaderText="CREATEDDATE" />
-                        <asp:BoundField DataField="MODIFIEDDATE" HeaderText="MODIFIEDDATE" />
+                        <asp:BoundField DataField="MODIFIEDDATE" HeaderText="MODIFIEDDATE" />--%>
                         <asp:TemplateField HeaderText="DELETE">
                             <ItemTemplate>
                                 <asp:Button ID="btndlt" runat="server" CssClass="btn btn-danger" Text="Delete" OnClick="btndlt_Click"/>

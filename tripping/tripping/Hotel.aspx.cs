@@ -15,6 +15,8 @@ namespace tripping.PackageManagers
         {
             if (!Page.IsPostBack)
             {
+                if (Session["UserId"] == null || !Session["Role"].ToString().Equals("Manager"))
+                    Response.Redirect("Login.aspx");
                 //Session["UserId"] = 1;
                 HotelBind();
                 view_allLocation();
@@ -47,7 +49,7 @@ namespace tripping.PackageManagers
                 hotel.hotel_ob.Description = txtdiscription.Text.Trim().ToString();
                 hotel.hotel_ob.Location = int.Parse(ddllocationhotel.SelectedItem.Value);
                 hotel.hotel_ob.Package = int.Parse(txtpackage.Text.Trim().ToString());
-                hotel.hotel_ob.Prize = txthotelprice.Text.Trim().ToString();
+                hotel.hotel_ob.Prize = Convert.ToInt32(txthotelprice.Text.Trim());
 
                 string result = hotel.InsertHotel();
                 hdfield.Value = "-1";
@@ -92,7 +94,7 @@ namespace tripping.PackageManagers
                 hotel.hotel_ob.Description = txtdiscription.Text.Trim().ToString();
                 hotel.hotel_ob.Location = int.Parse(ddllocationhotel.SelectedItem.Value);
                 hotel.hotel_ob.Package = int.Parse(txtpackage.Text.Trim().ToString());
-                hotel.hotel_ob.Prize = txthotelprice.Text.Trim().ToString();
+                hotel.hotel_ob.Prize = Convert.ToInt32(txthotelprice.Text.Trim());
 
                 string result = hotel.HotelUpdate();
                 hdfield.Value = "-1";
@@ -185,10 +187,10 @@ namespace tripping.PackageManagers
             hotel.SelectHotelById();
             txthotelname.Text = hotel.hotel_ob.Hotel_name;
             txtdiscription.Text = hotel.hotel_ob.Description.ToString();
-            ddllocationhotel.SelectedValue = hotel.hotel_ob.Location.ToString();
-            txtpackage.Text = hotel.hotel_ob.Package.ToString();
+            ddllocationhotel.SelectedValue = hotel.hotel_ob.Location_name.ToString();
+            txtpackage.Text = hotel.hotel_ob.Package_name.ToString();
             ImageMap1.ImageUrl = hotel.hotel_ob.Hotel_image;
-            txthotelprice.Text = hotel.hotel_ob.Prize;
+            txthotelprice.Text = hotel.hotel_ob.Prize.ToString();
         }
         protected void btnedithotel_Click(object sender, EventArgs e)
         {

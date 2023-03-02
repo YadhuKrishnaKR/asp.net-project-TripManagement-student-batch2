@@ -51,13 +51,14 @@ namespace BLL.USER.Manager
             return li;
         }
 
-        public string bookinginsert(int Total,int Pid,int Hid,int Uid)
+        public string bookinginsert(int Total,int Pid,int Hid,int Uid,int Actid)
         {
             s1.Clear();
             s1.Add("PACKAGEID", Pid);
             s1.Add("HOTELID", Hid);
             s1.Add("TOTAL_AMOUNT", Total);
             s1.Add("USER_ID", Uid);
+            s1.Add("ActivityId", Actid);
             return db_obj.executeprocedure(s1, "SP_bookinginsert");
         }
 
@@ -97,6 +98,7 @@ namespace BLL.USER.Manager
             {
                 li.Add(new Activitylist
                 {
+                    ACTIVITY_ID=Convert.ToInt32(dr["ACTIVITY_ID"]),
                     ACTIVITY_NAME = dr["ACTIVITY_NAME"].ToString(),
                     AMOUNT = Convert.ToInt32(dr["AMOUNT"])
                 });

@@ -16,7 +16,9 @@ namespace tripping.PackageManagers
         {
             if (!Page.IsPostBack)
             {
-                Session["UserId"] = 1;
+               // Session["UserId"] = 1;
+               if(Session["UserId"]==null || !Session["Role"].ToString().Equals("Manager"))
+                    Response.Redirect("Login.aspx");
                 view_allLocation();
                 PackageBind();
             }
@@ -51,7 +53,7 @@ namespace tripping.PackageManagers
                 manager.manager_ob.Cordinatorid =(int)Session["UserId"];
                 manager.manager_ob.Locationid = int.Parse( ddllocation.SelectedItem.Value);
                 //manager.activity_ob.Activity_name = ddlactivities.SelectedValue.ToString();
-                manager.manager_ob.Basicfare = txtamount.Text.Trim().ToString();
+                manager.manager_ob.Basicfare = int.Parse(txtamount.Text.Trim().ToString());
 
                 string result = manager.InsertPackages();
                 hdfield.Value = "-1";
@@ -92,7 +94,7 @@ namespace tripping.PackageManagers
                 manager.manager_ob.Package_name = txttourname.Text.Trim().ToString();
                 manager.manager_ob.Cordinatorid = (int)Session["UserId"];
                 manager.manager_ob.Locationid = int.Parse(ddllocation.SelectedItem.Value);
-                manager.manager_ob.Basicfare = txtamount.Text.Trim().ToString();
+                manager.manager_ob.Basicfare = int.Parse(txtamount.Text.Trim().ToString());
                
                 string result = manager.PackageUpdate();
                 hdfield.Value = "-1";
@@ -180,10 +182,10 @@ namespace tripping.PackageManagers
             manager.manager_ob.Package_id = int.Parse(hdfield.Value);
             manager.SelectPackageById();
             txttourname.Text = manager.manager_ob.Package_name;
-            txtmanager.Text = manager.manager_ob.Cordinatorid.ToString();
-            ddllocation.SelectedValue = manager.manager_ob.Locationid.ToString();
+            txtmanager.Text = manager.manager_ob.Appuser_name.ToString();
+            ddllocation.SelectedValue = manager.manager_ob.Location_name.ToString();
             ImageMap1.ImageUrl = manager.manager_ob.Image; 
-            txtamount.Text = manager.manager_ob.Basicfare;
+            txtamount.Text = manager.manager_ob.Basicfare.ToString();
         }
         protected void btnedit_Click(object sender, EventArgs e)
         {
@@ -217,6 +219,12 @@ namespace tripping.PackageManagers
             GridViewRow grdvwrow = btn.NamingContainer as GridViewRow;
             hdfield.Value = GridView1.DataKeys[grdvwrow.RowIndex].Value.ToString();
             Response.Redirect("Activities.aspx?Package=" +hdfield.Value );
+        }
+
+        protected void btnuser_Click(object sender, EventArgs e)
+        {
+            
+            Response.Redirect("userpm.aspx?");
         }
     }
 }

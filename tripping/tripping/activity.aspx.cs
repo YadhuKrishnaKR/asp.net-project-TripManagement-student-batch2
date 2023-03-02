@@ -16,14 +16,17 @@ namespace tripping
         Hotel hotel_obj = new Hotel();
         int activitytotal=0;
         int hid ;
+        int actid;
         protected void Page_Load(object sender, EventArgs e)
         {
          
 
             if (!IsPostBack)
             {
-              
-               Labelid.Text = Request.QueryString["id"];
+                if (Session["UserId"] == null || !Session["Role"].ToString().Equals("User"))
+                    Response.Redirect("Login.aspx");
+
+                Labelid.Text = Request.QueryString["id"];
                 int s = Convert.ToInt32 (Labelid.Text);
                 HiddenField1.Value = Convert.ToInt32(s).ToString();
                 al_obj.PACKAGEID = Convert.ToInt32(s);
@@ -80,11 +83,12 @@ namespace tripping
 
                     HiddenField h1 = item.FindControl("HiddenFieldactivityid") as HiddenField;
 
-
+                    HiddenField h2 = item.FindControl("HiddenFieldactid") as HiddenField;
+                    int actid = Convert.ToInt32(h2.Value);
 
                     int v = Convert.ToInt32(h1.Value);
 
-
+                    HiddenFieldgetactid.Value = Convert.ToInt32 (actid).ToString();
 
                     activitytotal += v;
                 }
@@ -92,12 +96,12 @@ namespace tripping
 
 
             int id =  Convert.ToInt32(HiddenField1.Value.ToString());
-          
-            
+
+            int actvtyid = Convert.ToInt32(HiddenFieldgetactid.Value);
             int hotelfare = Convert.ToInt32(HiddenFieldhotelfare.Value);
            string pf = um_obj.getpackageamount(id).ToString();
             int hid =  Convert.ToInt32(HiddenField2.Value);
-            Response.Redirect("Payment.aspx?var=" + activitytotal + "&hotelfare=" + hotelfare +"&basicfare=" + pf + "&packageid=" +id +"&hotelid=" +hid);
+            Response.Redirect("Payment.aspx?var=" + activitytotal + "&hotelfare=" + hotelfare +"&basicfare=" + pf + "&packageid=" +id +"&hotelid=" +hid + "&actid=" + actvtyid);
           
           
         }

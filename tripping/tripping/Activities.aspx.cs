@@ -16,6 +16,9 @@ namespace tripping.PackageManagers
         {
             if (!Page.IsPostBack)
             {
+                if (Session["UserId"] == null || !Session["Role"].ToString().Equals("Manager"))
+                    Response.Redirect("Login.aspx");
+
                 ActivityBind();
                 txtpackageid.Text = Request.QueryString["Package"];
             }
@@ -28,7 +31,7 @@ namespace tripping.PackageManagers
         public void InsertActivity()
         {
             activity.activity_ob.Activity_name = txtactivityname.Text.Trim().ToString();
-            activity.activity_ob.Amount = txtamount.Text.Trim().ToString();
+            activity.activity_ob.Amount = int.Parse(txtamount.Text.Trim().ToString());
             activity.activity_ob.PackageId = int.Parse(txtpackageid.Text.Trim().ToString());
 
             string result = activity.InsertActivity();
@@ -62,7 +65,7 @@ namespace tripping.PackageManagers
         {
             activity.activity_ob.Activity_id = int.Parse(hdfield.Value);
             activity.activity_ob.Activity_name = txtactivityname.Text.Trim().ToString();
-            activity.activity_ob.Amount = txtamount.Text.Trim().ToString();
+            activity.activity_ob.Amount = int.Parse(txtamount.Text.Trim().ToString());
             activity.activity_ob.PackageId = int.Parse(txtpackageid.Text.Trim());
 
             string result = activity.UpdateActivity();
@@ -125,7 +128,7 @@ namespace tripping.PackageManagers
             activity.activity_ob.Activity_id = int.Parse(hdfield.Value);
             activity.SelectAllById();
             txtactivityname.Text = activity.activity_ob.Activity_name;
-            txtamount.Text = activity.activity_ob.Amount;
+            txtamount.Text = activity.activity_ob.Amount.ToString();
             txtpackageid.Text = activity.activity_ob.PackageId.ToString();
         }
         protected void btnedit_Click(object sender, EventArgs e)
@@ -161,19 +164,5 @@ namespace tripping.PackageManagers
             Response.Redirect("TourPackagesManage.aspx?");
         }
 
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                // Find the input control for the PACKAGEID field
-                TextBox txtPackageID = e.Row.FindControl("PACKAGEID") as TextBox;
-
-                if (txtPackageID != null)
-                {
-                    // Set the "readonly" attribute of the input control
-                    txtPackageID.Attributes.Add("readonly", "readonly");
-                }
-            }
-        }
     }
 }

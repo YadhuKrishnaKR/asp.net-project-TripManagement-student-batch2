@@ -34,7 +34,7 @@
                 </div>
                  <div class="d-flex align-items-center">
                      <asp:Label ID="lblparagraph" runat="server" CssClass="me-1">If you haven't an account please</asp:Label>
-                    <asp:Button ID="Buttonsignup" runat="server" OnClick="Buttonsignup_Click" Text="signup" CssClass="btn btn-secondary text-info"/>
+                    <asp:Button ID="Buttonsignup" runat="server" Text="signup" CssClass="btn btn-secondary text-info" OnClick="Buttonsignup_Click"/>
                 </div>
                 <asp:Label ID="Label" runat="server" Text="Label" Visible="false"></asp:Label>
            </div>

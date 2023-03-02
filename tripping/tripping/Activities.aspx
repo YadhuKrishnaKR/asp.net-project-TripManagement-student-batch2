@@ -20,7 +20,7 @@
                                 <asp:BoundField DataField="ACTIVITY_ID" HeaderText="ID" Visible="False"/>
                                 <asp:BoundField DataField="ACTIVITY_NAME" HeaderText="Activity Name" />
                                 <asp:BoundField DataField="AMOUNT" HeaderText="Price" />
-                                <asp:BoundField DataField="PACKAGEID" HeaderText="Package Name"/>
+                                <asp:BoundField DataField="PACKAGE_NAME" HeaderText="Package Name"/>
                                 <asp:TemplateField HeaderText="Edit">
                                     <ItemTemplate>
                                         <asp:Button ID="btnedit" runat="server" Text="Edit" CssClass="btn btn-success" OnClick="btnedit_Click"/>

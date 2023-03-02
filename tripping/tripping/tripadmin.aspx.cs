@@ -23,9 +23,9 @@ namespace tripping
         {
             if (!Page.IsPostBack)
             {
+                if (Session["UserId"] == null || !Session["Role"].ToString().Equals("Admin"))
+                    Response.Redirect("Login.aspx");
                 pmBind();
-
-
             }
         }
         public void pmBind()
@@ -82,7 +82,7 @@ namespace tripping
             trpmngr_Obj.reg.APPUSER_NAME = TextBox2.Text.Trim().ToString();
             trpmngr_Obj.reg.EMAIL = TextBox3.Text.Trim().ToString();
             trpmngr_Obj.reg.CONTACT = TextBox4.Text.Trim().ToString();
-            trpmngr_Obj.reg.STATUS = TextBox10.Text.Trim().ToString();
+            //trpmngr_Obj.reg.STATUS = TextBox10.Text.Trim().ToString();
             trpmngr_Obj.reg.PASSWORD = TextBox5.Text.Trim().ToString();
           
             string result = trpmngr_Obj.pmInsert();
@@ -168,7 +168,7 @@ namespace tripping
             TextBox3.Text = "";
             TextBox4.Text = "";
             TextBox5.Text = "";
-            TextBox10.Text = "";
+            //TextBox10.Text = "";
         }
         public void Clear()
         {
@@ -176,7 +176,7 @@ namespace tripping
             TextBox3.Text = "";
             TextBox4.Text = "";
             TextBox5.Text = "";
-            TextBox10.Text = "";
+            //TextBox10.Text = "";
         }
 
         protected void btndlt_Click(object sender, EventArgs e)

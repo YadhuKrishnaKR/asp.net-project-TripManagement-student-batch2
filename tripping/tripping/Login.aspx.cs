@@ -37,7 +37,12 @@ namespace tripping
                 Session["UserId"] = user.UserId;
                 Session["Role"] = user.Role;
                 // need to change redirect page
-                Response.Redirect("signup.aspx");
+                if (user.Role =="User")
+                    Response.Redirect("Homepage.aspx");
+                if (user.Role == "Manager")
+                    Response.Redirect("TourPackagesManage.aspx");
+                if (user.Role == "Admin")
+                    Response.Redirect("tripadmin.aspx");
             }
 
             else
@@ -58,14 +63,9 @@ namespace tripping
 
         }
 
-
         protected void Buttonsignup_Click(object sender, EventArgs e)
         {
-
-            //if (Buttonsignup.ValidationGroup == "a" && Page.IsValid == true)
-            //{
-                Response.Redirect("signup.aspx");
-            //}
+            Response.Redirect("signup.aspx");
         }
     }
 

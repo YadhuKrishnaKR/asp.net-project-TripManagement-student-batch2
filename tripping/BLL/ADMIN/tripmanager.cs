@@ -39,7 +39,7 @@ namespace BLL.ADMIN
                     PASSWORD = dr["PASSWORD"].ToString(),
                     //CREATEDDATE = dr["CREATEDDATE"].ToString(),
                     //MODIFIEDDATE =dr["MODIFIEDDATE"].ToString(),
-                    STATUS = dr["STATUS"].ToString(),
+                    //STATUS = dr["STATUS"].ToString(),
 
                 });
             }
@@ -54,7 +54,7 @@ namespace BLL.ADMIN
             S1.Add("CONTACT", reg.CONTACT);
             S1.Add("EMAIL", reg.EMAIL);
             S1.Add("PASSWORD",reg.PASSWORD);
-            S1.Add("STATUS", reg.STATUS);
+            //S1.Add("STATUS", reg.STATUS);
             //S1.Add("CREATEDDATE", reg.CREATEDDATE);
             //S1.Add("MODIFIEDDATE", reg.MODIFIEDDATE);
             return Db_obj.executeprocedure(S1, "pm_insert");

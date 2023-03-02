@@ -17,8 +17,13 @@ namespace tripping
         {
             if(!IsPostBack)
             {
+                if (Session["UserId"] == null || !Session["Role"].ToString().Equals("User"))
+                    Response.Redirect("Login.aspx");
+
+
                 HiddenFieldhotelid.Value = Request.QueryString["hotelid"];
                 HiddenFieldpid.Value = Request.QueryString["packageid"];
+                HiddenFieldactid.Value = Request.QueryString["actid"];
                 TextBoxbasicfare.Text =  Request.QueryString["basicfare"];
                TextBoxactivityfare.Text = Request.QueryString["var"];
                TextBoxhotelfare.Text = Request.QueryString["hotelfare"];
@@ -42,8 +47,9 @@ namespace tripping
             int total = Convert.ToInt32(TextBoxtotal.Text);
             int pid = Convert.ToInt32(HiddenFieldpid.Value);
             int hid = Convert.ToInt32(HiddenFieldhotelid.Value);
-            int uid = 1;
-            string result= um_obj.bookinginsert(total, pid, hid, uid);
+            int uid = Convert.ToInt32( Session["UserId"]);
+            int activityid = Convert.ToInt32(HiddenFieldactid.Value);
+            string result= um_obj.bookinginsert(total, pid, hid, uid,activityid);
             if(result== "Booking sucess")
             {
                 Labelbooking.Visible = true;

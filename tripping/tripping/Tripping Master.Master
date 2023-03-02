@@ -7,38 +7,70 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/> 
+ <style>
+        /* Add your custom styles here */
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        .navbar-nav {
+            margin-right: 20px;
+        }
+        .nav-link {
+            color: #fff;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .nav-link:hover {
+            color: #ffc107;
+        }
+        .btn-logout {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="background-color: #669999; height: 81px;">
-
-            <br />
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
-                <Items>
-                    <asp:MenuItem Text="HOME PAGE" Value="HOME PAGE"></asp:MenuItem>
-                    <asp:MenuItem Text="MY BOOKINGS" Value="MY BOOKINGS"></asp:MenuItem>
-                    <asp:MenuItem Text="ABOUT US" Value="ABOUT US"></asp:MenuItem>
-                    <asp:MenuItem Text="CONTACT US" Value="LOGIN"></asp:MenuItem>
-                    <asp:MenuItem Text="LOGIN" Value="LOGIN" NavigateUrl="~/signup.aspx"></asp:MenuItem>
-                </Items>
-                <StaticMenuItemStyle ForeColor="#663300" HorizontalPadding="50px" />
-            </asp:Menu>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
-            <br />
-            <%--            <asp:Button ID="ButtonLogout" runat="server" OnClick="ButtonLogout_Click" Text="Logout" />--%>
-      <%--      <asp:Button ID="Buttonlogout" runat="server" OnClick="Buttonlogout_Click1" Text="logout" />--%>
-            <br />
-        </div>
-        <div>
+         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand ms-3 me-3" href="#">Tripping</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Homepage.aspx">HOME PAGE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="MyBooking.aspx">MY BOOKINGS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ABOUT US</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#">CONTACT US</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                       
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="Login.aspx">LOGIN</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" CssClass="btn btn-secondary btn-logout" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+          <div class="mt-5">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-              
-                <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <br />
-                </p>
-              
             </asp:ContentPlaceHolder>
         </div>
     </form>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

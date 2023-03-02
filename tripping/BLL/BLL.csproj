@@ -41,13 +41,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADMIN\studentmanager.cs" />
+    <Compile Include="ADMIN\loginmanager.cs" />
+    <Compile Include="ADMIN\Manager\ActivityManager.cs" />
+    <Compile Include="ADMIN\Manager\HotelManager.cs" />
+    <Compile Include="ADMIN\Manager\MybookingManager.cs" />
+    <Compile Include="ADMIN\Manager\TourmanagingManager.cs" />
+    <Compile Include="ADMIN\signupmanager.cs" />
+    <Compile Include="ADMIN\tourmanagerproperty\Activitypro.cs" />
+    <Compile Include="ADMIN\tourmanagerproperty\Appuserpro.cs" />
+    <Compile Include="ADMIN\tourmanagerproperty\HotelPro.cs" />
+    <Compile Include="ADMIN\tourmanagerproperty\Locationpro.cs" />
+    <Compile Include="ADMIN\tourmanagerproperty\mybookinpro.cs" />
+    <Compile Include="ADMIN\tourmanagerproperty\Tourmanagerpro.cs" />
+    <Compile Include="ADMIN\tripmanager.cs" />
+    <Compile Include="ADMIN\userpmmanager.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROPERTY\email.cs" />
+    <Compile Include="PROPERTY\loginpro.cs" />
+    <Compile Include="PROPERTY\registration.cs" />
+    <Compile Include="PROPERTY\signpro.cs" />
+    <Compile Include="PROPERTY\userpmpro.cs" />
+    <Compile Include="PROPERTY\userProperty.cs" />
+    <Compile Include="USER\Manager\Usermanager.cs" />
+    <Compile Include="USER\Property\Activitylist.cs" />
+    <Compile Include="USER\Property\Booking.cs" />
+    <Compile Include="USER\Property\Hotel.cs" />
+    <Compile Include="USER\Property\locationProperty.cs" />
+    <Compile Include="USER\Property\packagelist.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PROPERTY\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{7803d52b-af9e-4b91-bb81-435c7eae9eeb}</Project>
