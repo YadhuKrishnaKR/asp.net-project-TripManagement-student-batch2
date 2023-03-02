@@ -71,8 +71,8 @@
                                 <asp:BoundField DataField="HOTEL_ID" HeaderText="ID" Visible="False"/>
                                 <asp:BoundField DataField="HOTEL_NAME" HeaderText="Hotel Name" />
                                 <asp:BoundField DataField="DESCRIPTION" HeaderText="Description" />
-                                <asp:BoundField DataField="LOCATION" HeaderText="Location" />
-                                <asp:BoundField DataField="PACKAGE" HeaderText="Package" />
+                                <asp:BoundField DataField="LOCATION_NAME" HeaderText="Location" />
+                                <asp:BoundField DataField="PACKAGE_NAME" HeaderText="Package" />
                                 <asp:ImageField DataImageUrlField="HOTEL_IMAGE" HeaderText="Image"  ControlStyle-Width="50"  ControlStyle-Height="50" >
 <ControlStyle Height="50px" Width="50px"></ControlStyle>
                                 </asp:ImageField>

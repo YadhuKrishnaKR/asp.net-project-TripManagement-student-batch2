@@ -1,14 +1,11 @@
 ﻿using BLL.ADMIN;
-using MailKit.Security;
-using MimeKit;
+
 using System;
-using MailKit.Net.Smtp;
 using System.Collections.Generic;
 using System.Linq;
 //using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 
 namespace BLL.PROPERTY
 {

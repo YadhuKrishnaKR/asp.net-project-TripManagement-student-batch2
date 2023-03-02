@@ -49,11 +49,11 @@ namespace BLL.ADMIN.Manager
             sort.Clear();
             sort.Add("activity_id", activity_ob.Activity_id);
             DataTable dt = new DataTable();
-            dt = dbh_ob.getdatatable("Sp_SelectAllById");
+            dt = dbh_ob.getdatatable(sort,"Sp_SelectAllById");
             if(dt.Rows.Count > 0)
             {
                 activity_ob.Activity_name = dt.Rows[0].ItemArray[1].ToString();
-                activity_ob.Amount= dt.Rows[0].ItemArray[2].ToString();
+                activity_ob.Amount= int.Parse(dt.Rows[0].ItemArray[2].ToString());
                 activity_ob.PackageId =int.Parse(dt.Rows[0].ItemArray[3].ToString());
             }
         }
@@ -68,9 +68,9 @@ namespace BLL.ADMIN.Manager
                 {
                     Activity_id = Convert.ToInt32(dr["ACTIVITY_ID"]),
                     Activity_name = dr["ACTIVITY_NAME"].ToString(),
-                    Amount = dr["AMOUNT"].ToString(),
-                    PackageId = Convert.ToInt32(dr["PACKAGEID"])
-                });
+                    Amount = int.Parse(dr["AMOUNT"].ToString()),
+                    Package_name = dr["PACKAGE_NAME"].ToString()
+                }) ;
             }
             return list;
         }

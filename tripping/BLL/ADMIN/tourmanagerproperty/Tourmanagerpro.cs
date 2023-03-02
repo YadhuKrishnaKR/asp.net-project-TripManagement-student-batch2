@@ -13,8 +13,10 @@ namespace BLL.ADMIN.tourmanagerproperty
         public string Package_name { get; set;}
         public int Cordinatorid { get; set; }
         public int Locationid { get; set; }
+        public string Location_name { get; set; }
+        public string Appuser_name { get; set; }
         public string Image { get; set; }
-        public string Basicfare { get; set; }
+        public int Basicfare { get; set; }
 
        
 

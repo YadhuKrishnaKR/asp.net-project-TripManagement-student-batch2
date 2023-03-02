@@ -59,10 +59,10 @@ namespace BLL.ADMIN.Manager
             {
                 hotel_ob.Hotel_name = dt.Rows[0].ItemArray[1].ToString();
                 hotel_ob.Description = dt.Rows[0].ItemArray[2].ToString();
-                hotel_ob.Location = int.Parse(dt.Rows[0].ItemArray[3].ToString());
-                hotel_ob.Package = int.Parse(dt.Rows[0].ItemArray[4].ToString());
+                hotel_ob.Location_name = dt.Rows[0].ItemArray[3].ToString();
+                hotel_ob.Package_name = dt.Rows[0].ItemArray[4].ToString();
                 hotel_ob.Hotel_image = dt.Rows[0].ItemArray[5].ToString();
-                hotel_ob.Prize = dt.Rows[0].ItemArray[6].ToString();
+                hotel_ob.Prize = int.Parse(dt.Rows[0].ItemArray[6].ToString());
             }
         }
         public List<HotelPro> SelectAllDetails()
@@ -77,10 +77,10 @@ namespace BLL.ADMIN.Manager
                     Hotel_id = Convert.ToInt32(dr["HOTEL_ID"]),
                     Hotel_name = dr["HOTEL_NAME"].ToString(),
                     Description = dr["DESCRIPTION"].ToString(),
-                    Location = Convert.ToInt32(dr["LOCATION"]),
-                    Package = Convert.ToInt32(dr["PACKAGE"]),
+                    Location_name = dr["LOCATION_NAME"].ToString(),
+                    Package_name = dr["PACKAGE_NAME"].ToString(),
                     Hotel_image = dr["HOTEL_IMAGE"].ToString(),
-                    Prize = dr["PRIZE"].ToString()
+                    Prize = int.Parse( dr["PRIZE"].ToString())
                 });
             }
             return list;

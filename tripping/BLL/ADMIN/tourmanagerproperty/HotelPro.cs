@@ -13,8 +13,11 @@ namespace BLL.ADMIN.tourmanagerproperty
         public string Hotel_name { get; set; }
         public string Description { get; set; }
         public int Location { get; set; }
+        public string Location_name { get; set; }
+        public string Package_name { get; set; }
         public int Package { get; set; }
         public string Hotel_image { get; set; }
-        public string Prize { get; set; }
+        public int Prize { get; set; }
+        
     }
 }

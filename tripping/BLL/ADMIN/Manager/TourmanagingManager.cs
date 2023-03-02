@@ -56,10 +56,10 @@ namespace BLL.ADMIN.Manager
             if (dt.Rows.Count > 0)
             {
                 manager_ob.Package_name = dt.Rows[0].ItemArray[1].ToString();
-                manager_ob.Cordinatorid = int.Parse(dt.Rows[0].ItemArray[2].ToString());
-                manager_ob.Locationid = int.Parse(dt.Rows[0].ItemArray[3].ToString());
+                manager_ob.Appuser_name = dt.Rows[0].ItemArray[2].ToString();
+                manager_ob.Location_name = dt.Rows[0].ItemArray[3].ToString();
                 manager_ob.Image = dt.Rows[0].ItemArray[4].ToString();
-                manager_ob.Basicfare = dt.Rows[0].ItemArray[5].ToString();
+                manager_ob.Basicfare = int.Parse(dt.Rows[0].ItemArray[5].ToString());
             }
         }
 
@@ -74,11 +74,11 @@ namespace BLL.ADMIN.Manager
                 {
                     Package_id = Convert.ToInt32(dr["PACKAGE_Id"]),
                     Package_name = dr["PACKAGE_NAME"].ToString(),
-                    Cordinatorid = Convert.ToInt32(dr["CORDINATORID"]),
-                    Locationid = Convert.ToInt32(dr["LOCATIONID"]),
+                    Appuser_name = dr["APPUSER_NAME"].ToString(),
+                    Location_name = dr["LOCATION_NAME"].ToString(),
                     Image = dr["IMAGE"].ToString(),
                     //Activity_name = dr["ACTIVITY_NAME"].ToString(),
-                    Basicfare = dr["BASICFARE"].ToString()
+                    Basicfare = int.Parse(dr["BASICFARE"].ToString())
                 });
             }
             return list;

@@ -33,6 +33,11 @@ namespace BLL.USER.Property
             get;
             set;
         }
+        public int Activity_Id
+        {
+            get;
+            set;
+        }
 
         public string STATUS
         {
